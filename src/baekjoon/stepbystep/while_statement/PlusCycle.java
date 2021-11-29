@@ -6,22 +6,33 @@ import java.util.Scanner;
 public class PlusCycle {
     public static void main(String[] args) throws IllegalAccessException {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = 0, sum = 0;
+        int first = sc.nextInt();
+        sc.nextLine();
 
-        if (a < 10) {
-            sum = a;
-        } else if (a >= 10) {
-            b = (a % 10);
-            sum = (a / 10) + b;
-        } else {
+        int b = 0, sum = 0, result = first, cnt = 0;
+
+        String resultStr;
+
+        if (result >= 100) {
             throw new IllegalAccessException("입력값이 100이상 입니다.");
         }
 
-
-
         do {
+            if (result < 10) {
+                sum = result;
+                b = sum;
+            } else if(result >= 10) {
+                b = (result % 10);
+                sum = (result / 10) + b;
+            }
 
-        } while (a != sum);
+            if(sum>=10) sum = (sum % 10);
+
+            resultStr = b + "" + sum;
+            result = Integer.parseInt(resultStr);
+            cnt++;
+        } while (result != first);
+
+        System.out.println(cnt);
     }
 }
