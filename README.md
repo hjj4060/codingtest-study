@@ -6,6 +6,10 @@
 1. 알고리즘 전략과 charAt(), substring() 함수 활용 문제풀이, String 형인 숫자를 int형으로 변경 방법, StringBuilder 사용이유 : https://deftkang.tistory.com/187?category=1006553
 2. ToCharArray() 함수를 활용하여 문제풀이 : https://deftkang.tistory.com/190?category=1006553
 3. indexOf(), substring() 함수의 개념과 코딩 : https://deftkang.tistory.com/193?category=1006553
+4. 스캐너는 느리기 때문에 버퍼리더, 스트링토크나이저 이용 
+   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+   StringTokenizer st = new StringTokenizer(br.readLine());
+5. char를 int로 변경하면 아스키코드 나옴
 
 ### 다음에 다시 풀 문제
 1. https://www.acmicpc.net/problem/1110
