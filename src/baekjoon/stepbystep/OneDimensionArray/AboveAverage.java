@@ -75,5 +75,4 @@ public class AboveAverage {
             cnt = 0;
         }
     }
-
 }

@@ -17,12 +17,6 @@ public class APlusBMinus {
     }
 
     public void solve(int num) throws IOException {
-        /*while(num>0) {
-
-            System.out.println(sc.nextInt() + sc.nextInt());
-            num--;
-        }*/
-
         for (int i=1; i <= num  ; i++ ) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());

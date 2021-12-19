@@ -11,7 +11,6 @@ public class HanSoo {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        //n이 한수인지 아닌지
         int c = Integer.parseInt(st.nextToken());
 
         int n100, n10, n1;

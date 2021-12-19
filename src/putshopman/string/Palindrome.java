@@ -1,4 +1,4 @@
-package basic.string;
+package putshopman.string;
 
 /**
  * 문자열 s의 substring에서 가장 긴 회문리턴하세요.

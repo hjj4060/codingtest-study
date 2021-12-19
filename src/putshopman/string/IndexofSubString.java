@@ -1,4 +1,4 @@
-package basic.string;
+package putshopman.string;
 
 /**
  * Input: String str[] = { “test”, “teacher" }

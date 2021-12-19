@@ -1,6 +1,7 @@
-package basic.string;
+package putshopman.string;
 
 /*
+    https://www.inflearn.com/course/코딩테스트-자바-개념/
     문제1) charAt()를 이용하여 문자열 숫자 더하기
     Input: "123", "888"
     Output: "1011"

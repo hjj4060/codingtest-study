@@ -1,4 +1,4 @@
-package basic.string;
+package putshopman.string;
 
 /*
     문제2) toCharArray()를 이용하여 괄호 쌍 맞추기
