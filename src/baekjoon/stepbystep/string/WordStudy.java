@@ -24,10 +24,27 @@ public class WordStudy {
                 hashMap.put(s.charAt(i), hashMap.get(s.charAt(i)) + 1);
             }
         }
+        int max = 0;
+        char maxC = 'A';
 
         for (char c:hashMap.keySet()) {
-            System.out.println(c + " " + hashMap.get(c));
+            if(max <= hashMap.get(c)) {
+                maxC = c;
+                max = hashMap.get(c);
+            }
         }
-        
+
+        int cnt = 0;
+        for (char c:hashMap.keySet()) {
+            if(hashMap.get(c) >= max) {
+                cnt++;
+            }
+        }
+
+        if(cnt > 1) {
+            System.out.println("?");
+        } else {
+            System.out.println(maxC);
+        }
     }
 }
