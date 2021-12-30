@@ -20,4 +20,4 @@
    - Palindrome => 가운데 기준으로 양사이드값 같아야함 ex)banana=>anana
 
 ### 다음에 다시 풀 문제
-1. https://www.acmicpc.net/problem/1110
+1. https://www.acmicpc.net/problem/2839
