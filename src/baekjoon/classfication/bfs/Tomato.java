@@ -35,7 +35,7 @@ public class Tomato {
 
                 if(tomato[i][j] == 1) {
                     q.add(new Node(i, j));
-                    visit[i][j] = false;
+                    visit[i][j] = true;
                 }
             }
         }
