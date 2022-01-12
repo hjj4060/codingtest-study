@@ -20,35 +20,26 @@ public class SubTotal {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int left = 0;
+        int left = 1;
         int right = 0;
-        int minLength = N + 1;
+        int minLength = N + 1; //11
+        int length;
+        int subtotal = 0;
 
-        while(left <= right && right <= N) {
-            int subtotal = 0;
 
-            if(left != right) {
-                for(int i=left; i<=right; i++) {
-                    subtotal += arr[i];
-                }
-            } else {
-                subtotal += arr[left];
+        for(int i=left; i<=N; i++) {
+            //왼쪽부터 오른쪽 더해서 커질때까지
+            while(right < N && subtotal < S) {
+                right++;
+                subtotal += arr[right];
             }
 
-            int length = right - left + 1;
+            if(subtotal > S) {
+                subtotal -= arr[i];
+            }
 
-            if (subtotal == S) {
-                if(length == 1) {
-                    minLength = length;
-                    break;
-                } else {
-                    minLength = Math.min(minLength, length);
-                    left++;
-                }
-            } else if (subtotal < S){
-                right++;
-            } else if (subtotal > S) {
-                left++;
+            if(subtotal == S) {
+                minLength = Math.min(minLength, right - i + 1);
             }
         }
 
