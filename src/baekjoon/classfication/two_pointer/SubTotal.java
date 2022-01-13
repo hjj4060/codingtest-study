@@ -23,24 +23,19 @@ public class SubTotal {
         int left = 1;
         int right = 0;
         int minLength = N + 1; //11
-        int length;
         int subtotal = 0;
 
-
         for(int i=left; i<=N; i++) {
-            //왼쪽부터 오른쪽 더해서 커질때까지
             while(right < N && subtotal < S) {
                 right++;
                 subtotal += arr[right];
             }
 
-            if(subtotal > S) {
-                subtotal -= arr[i];
-            }
-
-            if(subtotal == S) {
+            if (subtotal >= S) {
                 minLength = Math.min(minLength, right - i + 1);
             }
+
+            subtotal -= arr[i];
         }
 
         if(minLength != N + 1) {
