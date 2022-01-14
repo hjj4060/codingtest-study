@@ -2,39 +2,48 @@ package baekjoon.classfication.bfs;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.*;
 
 //https://www.acmicpc.net/problem/11724
 public class NumberOfConnectingElements {
     static FastReader scan = new FastReader();
 
+    static HashMap<Integer, ArrayList<Integer>> graph = new HashMap<Integer, ArrayList<Integer>>();
     static int N, M;
-    static int[][] arr;
+    static boolean visit[];
+    static Queue<Integer> q = new LinkedList<Integer>();
 
     public static void main(String[] args) {
-        N = scan.nextInt();
-        M = scan.nextInt();
+        N = scan.nextInt();  //정점의 개수
+        M = scan.nextInt();  //간선의 개수
 
-        arr = new int[N + 1][N + 1];
+        visit = new boolean[N];
+
+        for (int i = 0; i < N; i++) {
+            graph.put(i, new ArrayList<>());
+        }
 
         int x, y;
-
         for (int i = 0; i < M; i++) {
             x = scan.nextInt();
             y = scan.nextInt();
-            arr[x][y] = 1;
-            arr[y][x] = 1;
+
+            graph.get(x).add(y);
+            graph.get(y).add(x);
         }
 
-        for(int i=0; i<arr.length; i++) {
-            int inArr[] = arr[i];
-            for(int j=0; j<arr.length; j++) {
-                System.out.print(inArr[j] + " ");
-            }
-            System.out.println();
-        }
+        BFS();
     }
+
+    static private void BFS() {
+
+
+            while (!q.isEmpty()) {
+
+            }
+
+    }
+
 
     private static class FastReader {
         BufferedReader br;
@@ -45,7 +54,7 @@ public class NumberOfConnectingElements {
         }
 
         String next() {
-            if(st == null || !st.hasMoreTokens()) {
+            if (st == null || !st.hasMoreTokens()) {
                 try {
                     st = new StringTokenizer(br.readLine());
                 } catch (Exception e) {
