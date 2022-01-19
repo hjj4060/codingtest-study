@@ -4,29 +4,28 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-//https://www.acmicpc.net/problem/11724
-public class NumberOfConnectingElements {
+//https://www.acmicpc.net/problem/2606
+public class Virus {
     static FastReader scan = new FastReader();
+    static int v, e;
+    static int result;
+    static boolean visit[];
+    static Queue<Integer> q = new LinkedList();
 
     static HashMap<Integer, ArrayList<Integer>> graph = new HashMap<Integer, ArrayList<Integer>>();
-    static int N, M;
-    static boolean visit[];
-    static Queue<Integer> q = new LinkedList<Integer>();
-
-    static int result = 0;
 
     public static void main(String[] args) {
-        N = scan.nextInt();  //정점의 개수
-        M = scan.nextInt();  //간선의 개수
+        v = scan.nextInt();
+        e = scan.nextInt();
+        visit = new boolean[v + 1];
 
-        visit = new boolean[N + 1];
+        int x, y;
 
-        for (int i = 1; i <= N; i++) {
+        for(int i=1; i<=v; i++) {
             graph.put(i, new ArrayList<>());
         }
 
-        int x, y;
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < e; i++) {
             x = scan.nextInt();
             y = scan.nextInt();
 
@@ -39,32 +38,25 @@ public class NumberOfConnectingElements {
         System.out.println(result);
     }
 
-    static private void BFS() {
-        int x;
-        ArrayList<Integer> arr = new ArrayList<>();
+    private static void BFS() {
+        q.add(1);
+        visit[1] = true;
 
-        for (int g:graph.keySet()) {
-            if(visit[g] == false) {
-                q.add(g);
+        int vNum;
+
+        while(!q.isEmpty()) {
+            vNum = q.poll();
+
+            for (int i: graph.get(vNum)) {
+
+                if(visit[i]) continue;
+
                 result++;
-                visit[g] = true;
-            }
-
-            while (!q.isEmpty()) {
-                x = q.poll();
-
-                arr = graph.get(x);
-
-                for (int i:arr) {
-                    if(visit[i] == true) continue;
-
-                    q.add(i);
-                    visit[i] = true;
-                }
+                q.add(i);
+                visit[i] = true;
             }
         }
     }
-
 
     private static class FastReader {
         BufferedReader br;
