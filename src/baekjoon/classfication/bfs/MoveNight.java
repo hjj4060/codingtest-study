@@ -7,6 +7,8 @@ import java.util.StringTokenizer;
 //https://www.acmicpc.net/problem/7562
 public class MoveNight {
     static FastReader scan = new FastReader();
+    static int testCase, chessboard, fromNight, toNight;
+
 
     public static void main(String[] args) {
 
