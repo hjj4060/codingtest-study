@@ -17,7 +17,7 @@
    - toCharArray() => char[] return
    - indexOf() => 문자의 위치를 반환
    - subString() => substirng(0, 7) = teacher
-   - Palindrome => 가운데 기준으로 양사이드값 같아야함 ex)banana=>anana
+   - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
 
 ### 다음에 다시 풀 문제
 1. https://www.acmicpc.net/problem/2839
