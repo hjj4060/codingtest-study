@@ -1,4 +1,4 @@
-package baekjoon.solvedac.bronze5;
+package baekjoon.solvedac.class1;
 
 import java.math.BigInteger;
 import java.util.Scanner;

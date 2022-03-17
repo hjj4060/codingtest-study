@@ -1,4 +1,4 @@
-package baekjoon.solvedac.bronze5;
+package baekjoon.solvedac.class1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

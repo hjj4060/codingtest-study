@@ -1,10 +1,11 @@
-package baekjoon.stepbystep.string;
+package baekjoon.solvedac.silver5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+//https://www.acmicpc.net/problem/2941 크로아티아 알파벳
 public class CroatianAlphabet {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,7 +34,6 @@ public class CroatianAlphabet {
             if(s3 != null) {
                 for (String t : table) {
                     if (t.equals(s3)) {
-                        //set.add(s3);
                         arrayList.add(s3);
                         i = i + 2;
                         continue Loop1;
@@ -45,14 +45,12 @@ public class CroatianAlphabet {
             if(s2 != null) {
                 for (String t : table) {
                     if (t.equals(s2)) {
-                        //set.add(s2);
                         arrayList.add(s2);
                         i = i + 1;
                         continue Loop1;
                     }
                 }
             }
-            //set.add(s1);
             arrayList.add(s1);
         }
 

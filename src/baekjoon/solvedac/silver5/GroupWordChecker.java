@@ -1,4 +1,4 @@
-package baekjoon.stepbystep.string;
+package baekjoon.solvedac.silver5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class GroupWordChecker {
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int testCase = Integer.parseInt(st.nextToken());
-        HashSet<String> set = new HashSet<>();
+        HashSet<String> set = new HashSet<>(); //중복된 값 없애기 위해서 set 자료구조 이용
 
         int cnt = 0;
 
@@ -24,10 +24,11 @@ public class GroupWordChecker {
 
             for (int j = 0; j < s.length(); j++) {
                 String s1 = null, s2 = null;
-                s1 = s.substring(j, j + 1);
 
+                s1 = s.substring(j, j + 1);
                 if (j < s.length() - 1) s2 = s.substring(j + 1, j + 2);
 
+                //첫문자와 다음문자를 비교해서 다른문자가 왔는데 set 안에 있으면 그룹단어로 체크안함
                 if (s1.equals(s2)) {
                     continue;
                 } else {

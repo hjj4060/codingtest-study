@@ -15,6 +15,7 @@
 4. 스캐너는 느리기 때문에 버퍼리더, 스트링토크나이저 이용 : https://deftkang.tistory.com/215
 5. char를 int로 변경하면 아스키코드 나옴
 6. 자료구조 배열 : https://deftkang.tistory.com/216
+7. 정렬은 크게 Quick sort방식과 Tim Sort 방식이 있다. Quick sort방식은  Arrays.sort()로 하고 Tim sort 방식은 Collections.sort() 함수를 이용 하는데 2개의 가장 큰 차이는 최악의 case일 경우에 Quick sort는 시간복잡도가 O(n^2) 이고 Tim sort는 O(NlogN)이다. 
 
 ## 함수정리
 1. String
@@ -24,6 +25,12 @@
    - indexOf() => 문자의 위치를 반환
    - subString() => substirng(0, 7) = teacher
    - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
+   
+### 링크
+1. 백준 
+   - 실버5 푼사람순 : https://solved.ac/problems/level/6?sort=solved&direction=desc&page=1
+   - dp 푼사람순 : https://solved.ac/problems/tags/dp?sort=solved&direction=desc&page=1 
+   
 
 ## 다이나믹 프로그래밍
 
