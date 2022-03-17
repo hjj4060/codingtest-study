@@ -3,6 +3,11 @@
 2. 백준 단계별로 풀어보기 : https://www.acmicpc.net/step
 3. 패스트캠퍼스 온라인 강의 : https://fastcampus.co.kr/courses/203934/clips/
 
+### 문제집 링크
+1. 백준
+  - silver5 : https://solved.ac/problems/level/6?sort=solved&direction=desc&page=1
+  - DP : https://solved.ac/problems/tags/dp?sort=solved&direction=desc&page=1
+
 ## 공부내용정리
 1. 알고리즘 전략과 charAt(), substring() 함수 활용 문제풀이, String 형인 숫자를 int형으로 변경 방법, StringBuilder 사용이유 : https://deftkang.tistory.com/187?category=1006553
 2. ToCharArray() 함수를 활용하여 문제풀이 : https://deftkang.tistory.com/190?category=1006553
@@ -20,10 +25,6 @@
    - subString() => substirng(0, 7) = teacher
    - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
 
-## 다음에 다시 풀 문제
-1. https://www.acmicpc.net/problem/2839
-
-
 ## 다이나믹 프로그래밍
 
 ### 규격화된 문제 풀이
@@ -37,3 +38,6 @@
 3. 초기값 구하기
 4. 점화식 구해내기
 5. 진짜 문제 정답 출력하기
+
+## 다음에 다시 풀 문제
+1. https://www.acmicpc.net/problem/2839
