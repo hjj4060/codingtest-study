@@ -6,6 +6,7 @@
 ### 문제집 링크
 1. 백준
   - silver5 : https://solved.ac/problems/level/6?sort=solved&direction=desc&page=1
+  - silver3 : https://solved.ac/problems/level/8?sort=solved&direction=desc&page=1
   - DP : https://solved.ac/problems/tags/dp?sort=solved&direction=desc&page=1
 
 ## 공부내용정리
@@ -19,12 +20,13 @@
 
 ## 함수정리
 1. String
-   - charAt(I) => 문자열의 위치
+   - "문자열".charAt(i) => 문자열에서 i번째 char형 반환
    - charAt(i) -‘0’ => int 값
    - toCharArray() => char[] return
    - indexOf() => 문자의 위치를 반환
    - subString() => substirng(0, 7) = teacher
-   - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환\
+   - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
+2. 기타
    - compareTo() => 문자열 정렬용 함수, comparator 인터페이스 구현할때 사용
    
 ### 링크
