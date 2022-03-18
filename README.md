@@ -24,7 +24,8 @@
    - toCharArray() => char[] return
    - indexOf() => 문자의 위치를 반환
    - subString() => substirng(0, 7) = teacher
-   - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
+   - contains() => 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환\
+   - compareTo() => 문자열 정렬용 함수, comparator 인터페이스 구현할때 사용
    
 ### 링크
 1. 백준 
