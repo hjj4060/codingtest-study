@@ -3,8 +3,7 @@ package baekjoon.solvedac.silver3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/1463 1로 만들기
@@ -17,19 +16,20 @@ public class MakeIt1 {
         int result = Integer.parseInt(st.nextToken());
         int step = 0;
 
-        ArrayList<Integer> list = new ArrayList<>();
-
         if(result == 1) {
             System.out.println(step);
             return;
         }
 
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
-        map.put(step, new ArrayList<>(1));
+        HashMap<Integer, LinkedHashSet<Integer>> map = new HashMap<>();
+        //map.put(step, new ArrayList<Integer>(Arrays.asList(1))); // 0, 1
+        map.put(step, new LinkedHashSet<Integer>());
+        map.get(step).add(1);
 
         Loop:
         while(true) {
             step++;
+            map.put(step, new LinkedHashSet<Integer>());
 
             for (Integer i : map.get(step - 1)) {
                 int n1 = i + 1;
@@ -39,11 +39,18 @@ public class MakeIt1 {
                 if (n1 == result || n2 == result || n3 == result) {
                     break Loop;
                 } else {
-                    map.put(step, new ArrayList<>(n1));
-                    map.put(step, new ArrayList<>(n2));
-                    map.put(step, new ArrayList<>(n3));
+                    map.get(step).add(n3);
+                    map.get(step).add(n2);
+                    map.get(step).add(n1);
                 }
             }
+
+            //test
+            System.out.print(step + ": ");
+            for (Integer i : map.get(step)) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
 
         System.out.println(step);

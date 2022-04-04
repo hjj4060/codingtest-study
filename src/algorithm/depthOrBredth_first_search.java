@@ -48,9 +48,9 @@ public class depthOrBredth_first_search {
 //			}
 //		}
 
-        Arrays.fill(visit, 0);
+        /*Arrays.fill(visit, 0);
         System.out.println("DFS 방문순서");
-        dfs(start);
+        dfs(start);*/
 
         System.out.println();
         System.out.println();
