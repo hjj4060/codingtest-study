@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//https://www.acmicpc.net/problem/7576
+//https://www.acmicpc.net/problem/7576 토마토
 public class Tomato {
     static int dx[] = {1,0,-1,0};
     static int dy[] = {0,1,0,-1};

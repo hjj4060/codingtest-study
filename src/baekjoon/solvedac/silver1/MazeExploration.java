@@ -1,7 +1,5 @@
 package baekjoon.solvedac.silver1;
 
-import baekjoon.classfication.bfs.Tomato;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,10 +12,9 @@ public class MazeExploration {
     static int dx[] = {1,0,-1,0};
     static int dy[] = {0,1,0,-1};
 
-    static final int X = 0;
-    static final int Y = 0;
+    static int X, Y;
 
-    static Boolean visit[][];
+    static boolean visit[][];
     static int maze[][];
 
     static Queue<Node> q = new LinkedList<>();
@@ -26,10 +23,10 @@ public class MazeExploration {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int Y = Integer.parseInt(st.nextToken()) + 1; //도착점 세로 5
-        int X = Integer.parseInt(st.nextToken()) + 1; //도착점 가로 7
+        Y = Integer.parseInt(st.nextToken()) + 1; //도착점 세로 5
+        X = Integer.parseInt(st.nextToken()) + 1; //도착점 가로 7
 
-        visit = new Boolean[Y][X];
+        visit = new boolean[Y][X];
         maze = new int[Y][X];
 
         for (int i = 1; i < maze.length; i++) {
@@ -41,18 +38,18 @@ public class MazeExploration {
             }
         }
 
-        test();
+        //test();
 
         visit[1][1] = true;
         q.add(new Node(1,1));
 
         BFS();
-        System.out.println();
+        //System.out.println();
 
-        test();
-
+        //test();
+        //System.out.println();
+        System.out.println(maze[Y - 1][X - 1]);
     }
-
 
     private static void BFS() {
         Node n;
@@ -61,15 +58,17 @@ public class MazeExploration {
             n = q.poll();
 
             for (int i = 0; i < dx.length; i++) {
-                int tx = n.x + dx[i];
-                int ty = n.y + dy[i];
+                int tx = n.x + dx[i]; //2
+                int ty = n.y + dy[i]; //1
 
-                if(tx < 0 || ty < 0 || tx>=X || ty >= Y || maze[tx][ty] == 0 || visit[tx][ty] == true) continue;
+                if (tx < 1 || ty < 1 || tx >= X || ty >= Y || maze[ty][tx] == 0 || visit[ty][tx] == true) {
+                    continue;
+                }
 
                 q.add(new Node(tx, ty));
-                visit[tx][ty] = true;
+                visit[ty][tx] = true;
 
-                maze[tx][ty] = maze[n.x][n.y] + 1;
+                maze[ty][tx] = maze[n.y][n.x] + 1;
             }
         }
     }
