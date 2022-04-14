@@ -22,8 +22,8 @@ public class Tomato {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        M = Integer.parseInt(st.nextToken());
-        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken()); //가로
+        N = Integer.parseInt(st.nextToken()); //세로
 
         tomato = new int[N][M];
         visit = new boolean[N][M];
