@@ -8,9 +8,12 @@ import java.util.StringTokenizer;
 //https://www.acmicpc.net/problem/1149 RGB거리
 public class RGBDistance {
     static int house[][];
-    static int result[];
+    static int dp[][];
 
     public static void main(String[] args) throws IOException{
+        input();
+
+
 
     }
 
