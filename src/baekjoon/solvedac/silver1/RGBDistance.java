@@ -20,6 +20,6 @@ public class RGBDistance {
 
         int N = Integer.parseInt(st.nextToken());
 
-        house = new int[N + 1][3];
+        house = new int[N][3];
     }
 }
