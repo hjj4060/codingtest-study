@@ -24,5 +24,15 @@ public class RGBDistance {
         int N = Integer.parseInt(st.nextToken());
 
         house = new int[N][3];
+
+        for (int i = 0; i < N; i++) {
+
+        }
+
+        //dp[0] = house[0] 초기화
+
+        /*
+            dp[0][0] 선택시 dp[1] = dp[
+         */
     }
 }
