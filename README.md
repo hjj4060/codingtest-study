@@ -19,6 +19,7 @@
 5. char를 int로 변경하면 아스키코드 나옴
 6. 자료구조 배열 : https://deftkang.tistory.com/216
 7. 정렬은 크게 Quick sort방식과 Tim Sort 방식이 있다. Quick sort방식은  Arrays.sort()로 하고 Tim sort 방식은 Collections.sort() 함수를 이용 하는데 2개의 가장 큰 차이는 최악의 case일 경우에 Quick sort는 시간복잡도가 O(n^2) 이고 Tim sort는 O(NlogN)이다. 
+8. A, B의 최소공배수는 A * B * (A,B의 최대공약수), 최대공약수는 유클리드호제법 알고리즘사용
 
 ## 함수정리
 1. String
