@@ -16,6 +16,7 @@ public class BaekJoon15651 {
         M = Integer.parseInt(st.nextToken());
 
         StringBuilder sb = new StringBuilder();
+
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= M; j++) {
                 sb.append(j + " ");

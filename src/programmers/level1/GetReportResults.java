@@ -24,6 +24,7 @@ public class GetReportResults {
             int[] answer = {};
 /*
             HashMap<String, Integer> id_map = new HashMap<>();
+
             HashSet<String> set = new HashSet<>();
 
             for (String s : id_list) {
