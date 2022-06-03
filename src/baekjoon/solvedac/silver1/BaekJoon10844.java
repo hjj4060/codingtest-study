@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/10844 쉬운계단수
 public class BaekJoon10844 {
-    static int dp[][];
+    static long dp[][];
     static int N;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,48 +16,45 @@ public class BaekJoon10844 {
 
         N = Integer.parseInt(st.nextToken());
 
-        dp = new int[N + 1][10];
-
-        dp();
+        dp = new long[N + 1][10];
 
 
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= 9; j++) {
+        //[1] 초기화
+        for (int j = 0; j <= 9; j++) {
+            dp[1][j] = 1;
+        }
+
+        if (N >= 2) {
+            dp();
+        }
+/*
+        for (int i = 0; i <= N; i++) {
+            for (int j = 0; j <= 9; j++) {
                 System.out.print(dp[i][j] + " ");
             }
             System.out.println();
         }
 
         System.out.println();
-
-        int result = 0;
+*/
+        long result = 0;
 
         for (int j = 1; j <= 9; j++) {
-            result += dp[N][j];
+            result += dp[N][j] % 1000000000;
         }
         System.out.println(result);
     }
 
     private static void dp() {
-        //[1] 초기화
-        for (int j = 1; j <= 9; j++) {
-            dp[1][j] = 1;
-        }
-        if(N == 1) return;
-
-        //[2] 초기화
-        for (int j = 1; j <= 9; j++) {
-            if (j == 9) {
-                dp[2][j] = 1;
-            } else {
-                dp[2][j] = 2;
-            }
-        }
-        if(N == 2) return;
-
-        for (int i = 3; i <= N; i++) {
-            for (int j = 1; j <= 9; j++) {
-                dp[i][j] = (dp[i - 1][j] + dp[i - 2][j]) % 1000000000;
+        for (int i = 2; i <= N; i++) {
+            for (int j = 0; j <= 9; j++) {
+                if (j == 0) {
+                    dp[i][j] = dp[i - 1][j + 1];
+                } else if (j == 9) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j + 1];
+                }
             }
         }
     }
