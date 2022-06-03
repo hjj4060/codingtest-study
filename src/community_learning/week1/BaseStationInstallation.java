@@ -1,6 +1,7 @@
 package community_learning.week1;
 
 //https://programmers.co.kr/learn/courses/30/lessons/12979 기지국 설치
+//https://small-stap.tistory.com/81 참고
 public class BaseStationInstallation {
     static Solution sol = new Solution();
 
