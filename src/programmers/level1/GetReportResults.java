@@ -1,9 +1,6 @@
 package programmers.level1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.StringTokenizer;
+import java.util.*;
 
 //https://programmers.co.kr/learn/courses/30/lessons/92334 신고결과받기
 public class GetReportResults {
@@ -16,36 +13,13 @@ public class GetReportResults {
         //String report[] = {"ryan con", "ryan con", "ryan con", "ryan con"};
         int k = 2;
 
-        s.solution(id_list, report, k);
+        System.out.println(Arrays.toString(s.solution(id_list, report, k)));
     }
 
     private static class Solution {
         public int[] solution(String[] id_list, String[] report, int k) {
-            int[] answer = {};
-/*
-            HashMap<String, Integer> id_map = new HashMap<>();
+            int[] answer = new int[id_list.length];
 
-            HashSet<String> set = new HashSet<>();
-
-            for (String s : id_list) {
-                id_map.put(s, 0);
-            }
-
-            for (String s : report) {
-                set.add(s);
-            }
-
-            StringTokenizer st;
-            String re[];
-
-
-            id_map.forEach((key, value) -> {
-                        System.out.println("{"+key+","+value+"}");
-                    });
-
-
-*/
-            
             HashSet<String> reportSet = new HashSet<>();
             for (String rep : report) {
                 reportSet.add(rep);
@@ -69,6 +43,30 @@ public class GetReportResults {
             notifyListHash.forEach((key, value) -> {
                 System.out.println("{"+key+","+value+"}");
             });
+
+            //신고자 - 정지당한사람수
+            HashMap<String, Integer> notifyCountMap = new HashMap<>();
+
+            for (String id : id_list) {
+                notifyCountMap.put(id, 0);
+            }
+            
+            for (String reportee : notifyListHash.keySet()) {
+                if (notifyListHash.get(reportee).size() >= k) {
+
+                    for (String reporter : notifyListHash.get(reportee)) {
+                        notifyCountMap.put(reporter, notifyCountMap.get(reporter) + 1);
+                    }
+                }
+                
+            }
+            notifyCountMap.forEach((key, value) -> {
+                System.out.println("{"+key+","+value+"}");
+            });
+
+            for (int i = 0; i < id_list.length; i++) {
+                answer[i] = notifyCountMap.get(id_list[i]);
+            }
 
             return answer;
         }
