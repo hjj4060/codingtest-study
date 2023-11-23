@@ -13,7 +13,7 @@ public class 조건_문자열 {
             int answer = 0;
 
             String str = ineq + eq;
-
+            
             if(str.equals(">=")) {
                 answer = n >= m ? 1 : 0;
             } else if(str.equals("<=")) {
@@ -28,4 +28,3 @@ public class 조건_문자열 {
         }
     }
 }
-
