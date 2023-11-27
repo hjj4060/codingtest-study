@@ -5,18 +5,18 @@ public class 옹알이 {
     public static void main(String[] args) {
         Solution sol = new Solution();
 
-        /**
-         * 설계
-         * 1. availBabblinglList를 for문 돌려서 0번째 인덱스에 있으면 그 문자열을 계속 짜름 0번째 인덱스에 없으면 break
-         * 2. 그 문자열의 길이가 0이면 answer 카운트 +1
-         */
-
         System.out.println(sol.solution(new String[]{"aya", "yee", "u", "maa", "wyeoo"}));
         System.out.println(sol.solution(new String[]{"ayaye", "uuuma", "ye", "yemawoo", "ayaa"}));
     }
 
     static class Solution {
         public int solution(String[] babbling) {
+            /**
+             * 설계
+             * 1. availBabblinglList를 for문 돌려서 0번째 인덱스에 있으면 그 문자열을 계속 짜름 0번째 인덱스에 없으면 break
+             * 2. 그 문자열의 길이가 0이면 answer 카운트 +1
+             */
+
             int answer = 0;
             String[] availBabblinglList = new String[]{"aya", "ye", "woo", "ma"};
 
