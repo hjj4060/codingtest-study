@@ -7,7 +7,7 @@ public class 옹알이 {
 
         /**
          * 설계
-         * 1. availBabblinglList를 for문 돌려서 0번째 인덱스에 있으면 그 문자열을 계속 짜름
+         * 1. availBabblinglList를 for문 돌려서 0번째 인덱스에 있으면 그 문자열을 계속 짜름 0번째 인덱스에 없으면 break
          * 2. 그 문자열의 길이가 0이면 answer 카운트 +1
          */
 
