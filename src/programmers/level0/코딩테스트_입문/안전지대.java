@@ -1,5 +1,6 @@
 package programmers.level0.코딩테스트_입문;
 
+//https://school.programmers.co.kr/learn/courses/30/lessons/120866
 public class 안전지대 {
     public static void main(String[] args) {
         Solution sol = new Solution();
