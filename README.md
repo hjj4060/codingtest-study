@@ -31,7 +31,7 @@
    - subString() : substirng(0, 7) = teacher
    - contains() : 문자열 내에 존재하는 특정 문자 시퀀스 확인 있으면 true 반환
    - Character.isUpperCase(a) : a값이 대분자면 true
-   -  Character.toUpperCase(a) : a값을 대문자로 변환
+   - Character.toUpperCase(a) : a값을 대문자로 변환
    - String.valueOf() : 문자열 변환
 2. 기타
    - () => 문자열 정렬용 함수, comparator 인터페이스 구현할때 사용
