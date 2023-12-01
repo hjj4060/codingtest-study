@@ -33,7 +33,10 @@
    - Character.isUpperCase(a) : a값이 대분자면 true
    - Character.toUpperCase(a) : a값을 대문자로 변환
    - String.valueOf() : 문자열 변환
-2. 기타
+2. Math 클래스
+   - Math.abs(숫자값) : 절대값 반환
+   - Math.pow(숫자값, 승수) : 숫자값에 대한 승수 값 리턴
+3기타
    - () => 문자열 정렬용 함수, comparator 인터페이스 구현할때 사용
    
 ### 링크
