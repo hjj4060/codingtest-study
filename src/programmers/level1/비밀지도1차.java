@@ -1,7 +1,5 @@
 package programmers.level1;
 
-import com.sun.deploy.util.StringUtils;
-
 //https://school.programmers.co.kr/learn/courses/30/lessons/17681
 public class 비밀지도1차 {
     public static void main(String[] args) {
