@@ -46,6 +46,10 @@ public class 튜플 {
 
             answer = new int[numberCountKeyList.size()];
 
+            for (int i = 0; i < answer.length; i++) {
+                answer[i] = numberCountKeyList.get(i);
+            }
+
             return answer;
         }
     }
