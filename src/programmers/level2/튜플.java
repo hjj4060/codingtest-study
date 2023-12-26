@@ -35,22 +35,28 @@ public class 튜플 {
                 numberCountMap.put(number, numberCountMap.get(number) != null ? numberCountMap.get(number) + 1 : 1);
             }
 
-            List<Integer> numberCountKeyList = new ArrayList<>(numberCountMap.keySet());
+            List<Integer> keyListorderbyValueDesc = mapKeyListOrderByValueDesc(numberCountMap);
 
-            numberCountKeyList.sort(new Comparator<Integer>() {
-                @Override
-                public int compare(Integer o1, Integer o2) {
-                    return numberCountMap.get(o2).compareTo(numberCountMap.get(o1));
-                }
-            });
-
-            answer = new int[numberCountKeyList.size()];
+            answer = new int[keyListorderbyValueDesc.size()];
 
             for (int i = 0; i < answer.length; i++) {
-                answer[i] = numberCountKeyList.get(i);
+                answer[i] = keyListorderbyValueDesc.get(i);
             }
 
             return answer;
+        }
+
+        private ArrayList<Integer> mapKeyListOrderByValueDesc(HashMap<Integer, Integer> map) {
+            ArrayList<Integer> mapKeyList = new ArrayList<>(map.keySet());
+
+            mapKeyList.sort(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return map.get(o2).compareTo(map.get(o1));
+                }
+            });
+
+            return mapKeyList;
         }
     }
 }
