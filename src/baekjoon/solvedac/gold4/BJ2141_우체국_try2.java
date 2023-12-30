@@ -4,6 +4,7 @@
     import java.io.InputStreamReader;
     import java.util.HashMap;
     import java.util.StringTokenizer;
+    import java.util.TreeMap;
 
     //https://www.acmicpc.net/problem/2141
     public class BJ2141_우체국_try2 {
@@ -20,9 +21,9 @@
              * key: 마을 위치
              * value : 사람 수
              */
-            HashMap<Integer, Integer> townPeopleCountMap = new HashMap<>();
+            TreeMap<Integer, Integer> townPeopleCountMap = new TreeMap<>();
 
-            for(int i = 0; i < townCount; i++) {
+            for (int i = 0; i < townCount; i++) {
                 st = new StringTokenizer(br.readLine());
 
                 int townLocation = Integer.parseInt(st.nextToken());
@@ -31,28 +32,29 @@
                 townPeopleCountMap.put(townLocation, townPeopleCount);
             }
 
-            //각 마을위치별 다른 마을 사람별 거리
-            HashMap<Integer, Long> sumTownDistancePeopleCountMap = new HashMap<>();
-            for(int townLocation : townPeopleCountMap.keySet()) {
-                Long distancePeopleCount = (long)0;
+            /**
+             * 전체 마을 사람 / 2 나오는 값
+             * 마을 사람 계속 더한 값
+             * 마을 사람 계속 더한 값이 전체마을 사람 /2 해서 나오는 값보다 커지면 마을 위치에 우체국 설치
+             */
 
-                for(int calculatingTownLocation : townPeopleCountMap.keySet()) {
-                    distancePeopleCount += Math.abs(townLocation - calculatingTownLocation) * townPeopleCountMap.get(calculatingTownLocation);
+            double peopleCountDivision2 = 0;
+            for (int key : townPeopleCountMap.keySet()) {
+                peopleCountDivision2 += townPeopleCountMap.get(key);
+            }
+            peopleCountDivision2 /= 2;
+
+            int installOfficeLocation = 0;
+            double sumPeopleCount = 0;
+            for (int key : townPeopleCountMap.keySet()) {
+                sumPeopleCount += townPeopleCountMap.get(key);
+
+                if (peopleCountDivision2 <= sumPeopleCount) {
+                    installOfficeLocation = key;
+                    break;
                 }
-
-                sumTownDistancePeopleCountMap.put(townLocation, distancePeopleCount);
             }
 
-            Long minDistancePeopleCount = Long.MAX_VALUE;
-            int minTownLocation = Integer.MAX_VALUE;
-
-            for(int key : sumTownDistancePeopleCountMap.keySet()) {
-                if(minDistancePeopleCount > sumTownDistancePeopleCountMap.get(key)) {
-                    minTownLocation = key;
-                    minDistancePeopleCount = sumTownDistancePeopleCountMap.get(key);
-                }
-            }
-
-            System.out.println(minTownLocation);
+            System.out.println(installOfficeLocation);
         }
     }
