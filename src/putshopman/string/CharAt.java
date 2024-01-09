@@ -22,12 +22,18 @@ public class CharAt {
 
         while(num1Length >= 0 || num2Length >= 0) {
             int n1 = 0, n2 = 0, sum = 0;
-            if(num1Length >= 0) n1 = nums1.charAt(num1Length) - '0'; //String -> Int
-            if(num2Length >= 0) n2 = nums2.charAt(num2Length) - '0'; //String -> Int
 
-            sum = n1+n2+carry;
-            carry = sum/10;
-            sb.append(sum%10);
+            if (num1Length >= 0) {
+                n1 = nums1.charAt(num1Length) - '0'; //String -> Int
+            }
+
+            if(num2Length >= 0) {
+                n2 = nums2.charAt(num2Length) - '0'; //String -> Int}
+            }
+
+            sum = n1 + n2 + carry;
+            carry = sum / 10;
+            sb.append(sum % 10);
 
             num1Length--;
             num2Length--;
