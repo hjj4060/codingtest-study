@@ -3,13 +3,12 @@ package baekjoon.solvedac.silver2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/11501
-public class BJ11501_주식 {
+public class BJ11501_주식_try2 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st = null;
 
@@ -34,24 +33,23 @@ public class BJ11501_주식 {
         for (int i = 0; i < testCase; i++) {
             input();
 
-            //주식 가격에서 최대값을 찾음
             int maxStockPrice = maxStockPrice(0);
-            Queue<Integer> haveStock = new LinkedList<>();
             long sellMoney = 0;
+            int stockCount = 0;
+            int sumStockPrice = 0;
 
             for (int j = 0; j < stocks.length; j++) {
-                //주식 가격에서 최대값이 나올때 까지 삼
                 if (maxStockPrice != stocks[j]) {
-                    haveStock.add(stocks[j]);
-                //최대값이 나오면 다 팔고 최대값 다시 구함
+                    stockCount++;
+                    sumStockPrice += stocks[j];
                 } else {
-                    while (!haveStock.isEmpty()) {
-                        sellMoney += maxStockPrice - haveStock.poll();
-                    }
+                    sellMoney += (stockCount * maxStockPrice) - sumStockPrice;
 
                     if (j != stocks.length - 1) {
                         maxStockPrice = maxStockPrice(j + 1);
                     }
+                    stockCount = 0;
+                    sumStockPrice = 0;
                 }
             }
 

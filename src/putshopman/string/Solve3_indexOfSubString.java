@@ -11,9 +11,9 @@ public class Solve3_indexOfSubString {
             return "";
         }
 
-        String firstStr = strs[0];
+        String firstStr = strs[0]; //"test"
 
-        for (int i = 1; i < strs.length; i++) {
+        for (int i = 1; i < strs.length; i++) { //"teacher"
             while (strs[i].indexOf(firstStr) != 0) {
                 firstStr = firstStr.substring(0, firstStr.length() - 1); //뒤에서 한글자씩 지움
             }
