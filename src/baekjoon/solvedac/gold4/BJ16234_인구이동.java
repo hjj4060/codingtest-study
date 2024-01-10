@@ -46,9 +46,9 @@ public class BJ16234_인구이동 {
 
         //인구이동할 나라가 있는지 찾기
         while (true) {
-            boolean needMove = seekNeedMove();
+            int[] startLocation = seekStartLocation();
 
-            if (!needMove) {
+            if (startLocation == null) {
                 break;
             }
 
@@ -76,8 +76,8 @@ public class BJ16234_인구이동 {
     }
 
     //인구 이동할 나라가 있는지 찾기
-    public static boolean seekNeedMove() {
-        boolean needMove = false;
+    public static int[] seekStartLocation() {
+        int[] startLocation = null;
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
@@ -89,14 +89,15 @@ public class BJ16234_인구이동 {
                         int diffPeopleCount = Math.abs(map[i][j] - map[movedX][movedY]);
 
                         if(L <= diffPeopleCount && diffPeopleCount <= R) {
-                            needMove = true;
+                            startLocation = new int[]{i, j};
+                            return startLocation;
                         }
                     }
                 }
             }
         }
 
-        return needMove;
+        return startLocation;
     }
 
     public static void peopleMove() {
