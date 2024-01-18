@@ -33,7 +33,7 @@ public class 그림 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
 
-    static int mapY, mapX;
+    static int mapYsize, mapXsize;
     static int[][] map = null;
     static boolean[][] isVisited = null;
 
@@ -48,16 +48,16 @@ public class 그림 {
         st = new StringTokenizer(br.readLine());
 
         //도화지 세로크기 y, 가로크기 x
-        mapY = Integer.parseInt(st.nextToken());
-        mapX = Integer.parseInt(st.nextToken());
+        mapYsize = Integer.parseInt(st.nextToken());
+        mapXsize = Integer.parseInt(st.nextToken());
 
-        map = new int[mapY][mapX];
-        isVisited = new boolean[mapY][mapX];
+        map = new int[mapYsize][mapXsize];
+        isVisited = new boolean[mapYsize][mapXsize];
 
-        for (int i = 0; i < mapY; i++) {
+        for (int i = 0; i < mapYsize; i++) {
             st = new StringTokenizer(br.readLine());
 
-            for (int j = 0; j < mapX; j++) {
+            for (int j = 0; j < mapXsize; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
@@ -82,8 +82,8 @@ public class 그림 {
 
     private static void solve() {
         //2중 for => 값 1 && 방문 => BFS
-        for (int i = 0; i < mapY; i++) {
-            for (int j = 0; j < mapX; j++) {
+        for (int i = 0; i < mapYsize; i++) {
+            for (int j = 0; j < mapXsize; j++) {
                 if(map[i][j] == 1 && !isVisited[i][j]) {
                     /**
                      * 방문체크 true
@@ -114,11 +114,11 @@ public class 그림 {
                 int nx = qx + dx[i];
 
                 /**
-                 * 사이즈 체크
+                 * map 사이즈 체크
                  * 방문한곳 1인지 체크
                  * 방문여부 체크
                  */
-                if (0 <= ny && ny < mapY && 0 <= nx && nx < mapX && map[ny][nx] == 1 && !isVisited[ny][nx]) {
+                if (0 <= ny && ny < mapYsize && 0 <= nx && nx < mapXsize && map[ny][nx] == 1 && !isVisited[ny][nx]) {
                     isVisited[ny][nx] = true;
                     queue.add(new int[]{ny, nx});
                     mapSize++;
