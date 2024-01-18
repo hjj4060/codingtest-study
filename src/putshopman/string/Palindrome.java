@@ -14,8 +14,18 @@ package putshopman.string;
         new Palindrome().solve(s);
     }
 
-    public void solve(String s) {
+    int start, end;
+    public String solve(String s) {
+        int len = s.length();
 
+        if (len < 2) {
+            return s;
+        }
 
+        for (int i = 0; i < len; i++) {
+            System.out.println("i" + i);
+        }
+
+        return "";
     }
 }
