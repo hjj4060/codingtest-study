@@ -29,7 +29,26 @@ public class 그림try2 {
 
     static int[] dy = new int[]{0, 1, 0, -1};
     static int[] dx = new int[]{1, 0, -1, 0};
+    
+    private static void input() throws IOException {
+        st = new StringTokenizer(br.readLine());
 
+        //세로, 가로
+        mapYsize = Integer.parseInt(st.nextToken());
+        mapXsize = Integer.parseInt(st.nextToken());
+
+        //방문 경로 배열과 방문 체크 배열 생성
+        map = new int[mapYsize][mapXsize];
+        isVisited = new boolean[mapYsize][mapXsize];
+
+        for (int i = 0; i < mapYsize; i++) {
+            st = new StringTokenizer(br.readLine());
+
+            for (int j = 0; j < mapXsize; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+            }
+        }
+    }
     public static void main(String[] args) throws IOException {
         input();
 
@@ -82,22 +101,5 @@ public class 그림try2 {
         return printSize;
     }
 
-    private static void input() throws IOException {
-        st = new StringTokenizer(br.readLine());
 
-        //세로, 가로
-        mapYsize = Integer.parseInt(st.nextToken());
-        mapXsize = Integer.parseInt(st.nextToken());
-
-        map = new int[mapYsize][mapXsize];
-        isVisited = new boolean[mapYsize][mapXsize];
-
-        for (int i = 0; i < mapYsize; i++) {
-            st = new StringTokenizer(br.readLine());
-
-            for (int j = 0; j < mapXsize; j++) {
-                map[i][j] = Integer.parseInt(st.nextToken());
-            }
-        }
-    }
 }
