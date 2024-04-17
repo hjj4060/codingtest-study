@@ -3,6 +3,7 @@ package baekjoon.classfication.backtracking;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/15649
@@ -22,17 +23,54 @@ public class N과M_15649 {
      * 2. 선택한 값 입력 배열 : int[]
      */
 
-    static int[] N, M;
-    static boolean[][] isVisited;
+    static int N, M;
+    static int[] result;
+    static boolean[] isVisited;
+    static ArrayList<int[]> resultList = new ArrayList<>();
 
     private static void input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
+        result = new int[N + 1];
+        isVisited = new boolean[N + 1];
     }
 
     public static void main(String[] args) throws IOException {
         input();
+
+        solve();
+
+        print();
+    }
+
+    private static void print() {
+        resultList.forEach(arr->{
+            for (int num : arr) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        });
+    }
+
+    private static void solve() throws IOException {
+        recur(0);
+    }
+
+    private static void recur(int depth) {
+        if (depth == M) {
+            resultList.add(result);
+            return;
+        }
+        for(int i = 1; i <= N; i++) {
+            if (!isVisited[i]) {
+                isVisited[i] = true;
+                result[depth] = i;
+                recur(depth + 1);
+            }
+        }
     }
 }
