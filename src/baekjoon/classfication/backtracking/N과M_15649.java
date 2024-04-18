@@ -35,7 +35,7 @@ public class N과M_15649 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        result = new int[N + 1];
+        result = new int[M];
         isVisited = new boolean[N + 1];
     }
 
@@ -48,12 +48,12 @@ public class N과M_15649 {
     }
 
     private static void print() {
-        resultList.forEach(arr->{
-            for (int num : arr) {
-                System.out.print(num + " ");
+        for (int[] arr : resultList) {
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i] + " ");
             }
             System.out.println();
-        });
+        }
     }
 
     private static void solve() throws IOException {
@@ -62,14 +62,18 @@ public class N과M_15649 {
 
     private static void recur(int depth) {
         if (depth == M) {
-            resultList.add(result);
+            int[] arr = result.clone();
+            resultList.add(arr);
+
             return;
         }
         for(int i = 1; i <= N; i++) {
             if (!isVisited[i]) {
                 isVisited[i] = true;
+
                 result[depth] = i;
                 recur(depth + 1);
+                isVisited[i] = false;
             }
         }
     }
