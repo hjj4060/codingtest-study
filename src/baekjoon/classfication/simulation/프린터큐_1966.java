@@ -37,10 +37,7 @@ public class 프린터큐_1966 {
 
 			solve();
 			addResult();
-
-			queue.clear();
-			importanceList.clear();
-			printOrder.clear();
+			init();
 		}
 
 		print();
@@ -85,5 +82,11 @@ public class 프린터큐_1966 {
 				break;
 			}
 		}
+	}
+
+	private static void init() {
+		queue.clear();
+		importanceList.clear();
+		printOrder.clear();
 	}
 }
