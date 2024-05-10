@@ -10,10 +10,19 @@ import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/1966
 public class 프린터큐_1966 {
+	//문서번호, 중요도 배열을 담는 큐
 	static Queue<int[]> queue = new LinkedList<>();
+
+	//중요도만 담은 리스트
 	static ArrayList<Integer> importanceList = new ArrayList<>();
+
+	//몇번째로 출력되는지 알고싶은 문서의 번호
 	static int findDocument;
+
+	//문서가 출력되는 순서
 	static ArrayList<int[]> printOrder = new ArrayList<>();
+
+	//출력에 담을 결과
 	static StringBuilder result = new StringBuilder();
 
 	public static void main(String[] args) throws IOException {
