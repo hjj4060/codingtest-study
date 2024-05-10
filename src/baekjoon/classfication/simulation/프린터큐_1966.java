@@ -13,11 +13,12 @@ import java.util.StringTokenizer;
 //https://www.acmicpc.net/problem/1966
 public class 프린터큐_1966 {
 	static Queue<int[]> queue = new LinkedList<int[]>();
-	static Set<Integer> importanceSet = new HashSet<>();
+	static ArrayList<Integer> importanceList = new ArrayList<>();
 	static int findDocument;
-	static ArrayList<Integer> printOrder = new ArrayList<Integer>();
+	static ArrayList<int[]> printOrder = new ArrayList<>();
+	static StringBuilder sb = new StringBuilder();
 
-	private static void input() throws IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int testCase = Integer.parseInt(st.nextToken());
@@ -32,35 +33,59 @@ public class 프린터큐_1966 {
 				int documentImportance = Integer.parseInt(st.nextToken());
 				int[] doc = new int[] {j, documentImportance};
 
-				importanceSet.add(documentImportance);
+				importanceList.add(documentImportance);
 				queue.add(doc);
 			}
 
 			solve();
-			System.out.println();
+			addResult();
+
 			queue.clear();
-			importanceSet.clear();
+			importanceList.clear();
 			printOrder.clear();
 		}
+
+		print();
 	}
 
-	public static void main(String[] args) throws IOException {
-		input();
-
+	private static void print() {
+		System.out.println(sb.toString());
 	}
 
 	private static void solve() {
-		//queue를 poll해서 나머지 문서들중 자기보다 중요도가 큰게 있으면 큐의 제일 뒤쪽에 넣기
-
-		while (true) {
+		while (!queue.isEmpty()) {
 			int[] doc = queue.poll();
 			int docImportance = doc[1];
-			boolean maxImportance = false;
+			boolean maxImportance = true;
 
-			for (Integer importance : importanceSet) {
-				System.out.println(importance);
+			for (int i = 0; i < importanceList.size(); i++) {
+				if (docImportance < importanceList.get(i)) {
+					maxImportance = false;
+					break;
+				}
 			}
-			break;
+
+			if (!maxImportance) {
+				queue.add(doc);
+			} else {
+				for (int i = 0; i < importanceList.size(); i++) {
+					if (docImportance == importanceList.get(i)) {
+						importanceList.remove(i);
+						break;
+					}
+				}
+
+				printOrder.add(doc.clone());
+			}
+		}
+	}
+
+	private static void addResult() {
+		for (int i = 1; i <= printOrder.size(); i++) {
+			if (printOrder.get(i - 1)[0] == findDocument) {
+				sb.append(i).append("\n");
+				break;
+			}
 		}
 	}
 }
