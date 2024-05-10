@@ -4,25 +4,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 //https://www.acmicpc.net/problem/1966
 public class 프린터큐_1966 {
-	static Queue<int[]> queue = new LinkedList<int[]>();
+	static Queue<int[]> queue = new LinkedList<>();
 	static ArrayList<Integer> importanceList = new ArrayList<>();
 	static int findDocument;
 	static ArrayList<int[]> printOrder = new ArrayList<>();
-	static StringBuilder sb = new StringBuilder();
+	static StringBuilder result = new StringBuilder();
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int testCase = Integer.parseInt(st.nextToken());
 
+		int testCase = Integer.parseInt(st.nextToken());
 		for (int i = 0; i < testCase; i++) {
 			st = new StringTokenizer(br.readLine());
 			int documentCnt = Integer.parseInt(st.nextToken());
@@ -49,7 +47,7 @@ public class 프린터큐_1966 {
 	}
 
 	private static void print() {
-		System.out.println(sb.toString());
+		System.out.println(result.toString());
 	}
 
 	private static void solve() {
@@ -83,7 +81,7 @@ public class 프린터큐_1966 {
 	private static void addResult() {
 		for (int i = 1; i <= printOrder.size(); i++) {
 			if (printOrder.get(i - 1)[0] == findDocument) {
-				sb.append(i).append("\n");
+				result.append(i).append("\n");
 				break;
 			}
 		}
