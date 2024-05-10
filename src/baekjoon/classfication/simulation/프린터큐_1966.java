@@ -43,10 +43,6 @@ public class 프린터큐_1966 {
 		print();
 	}
 
-	private static void print() {
-		System.out.println(result.toString());
-	}
-
 	private static void solve() {
 		while (!queue.isEmpty()) {
 			int[] doc = queue.poll();
@@ -88,5 +84,9 @@ public class 프린터큐_1966 {
 		queue.clear();
 		importanceList.clear();
 		printOrder.clear();
+	}
+
+	private static void print() {
+		System.out.println(result.toString());
 	}
 }
