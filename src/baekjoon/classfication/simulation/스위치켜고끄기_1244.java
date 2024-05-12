@@ -35,40 +35,32 @@ public class 스위치켜고끄기_1244 {
     private static void solve(int gender, int switchLocation) {
         if (gender == 1) {
             //남자
+            int num = switchLocation;
             while (switchLocation <= switchCnt) {
-                changeSwitch(switchLocation);
-                switchLocation *= 2;
+                switchStatus[switchLocation] ^= 1;
+                switchLocation += num;
             }
         } else {
             //여자
             int leftIdx = switchLocation - 1;
             int rightIdx = switchLocation + 1;
-            boolean chkChange = false;
             while (leftIdx >= 1 && rightIdx <= switchCnt) {
                 if(switchStatus[leftIdx] == switchStatus[rightIdx]) {
-                    chkChange = true;
-                    changeSwitch(leftIdx);
-                    changeSwitch(rightIdx);
+                    leftIdx--;
+                    rightIdx++;
+                } else {
+                    break;
                 }
-
-                leftIdx--;
-                rightIdx++;
             }
 
-            if(chkChange) {
-                changeSwitch(switchLocation);
+            leftIdx++;
+            rightIdx--;
+
+            for (int i = leftIdx; i <= rightIdx; i++) {
+                switchStatus[i] ^= 1;
             }
         }
     }
-
-    private static void changeSwitch(int changeSwitchLocation) {
-        if(switchStatus[changeSwitchLocation] == 0) {
-            switchStatus[changeSwitchLocation] = 1;
-        } else {
-            switchStatus[changeSwitchLocation] = 0;
-        }
-    }
-
 
     public static void main(String[] args) throws IOException {
         inputAndSolve();
@@ -76,8 +68,13 @@ public class 스위치켜고끄기_1244 {
     }
 
     private static void print() {
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i < switchStatus.length; i++) {
-            System.out.print(switchStatus[i] + " ");
+            sb.append(switchStatus[i] + " ");
+
+            if (i % 20 == 0) {
+                sb.append("\n");
+            }
         }
     }
 }
