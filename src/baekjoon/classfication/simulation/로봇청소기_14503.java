@@ -14,7 +14,7 @@ public class 로봇청소기_14503 {
     static int robotDirection;
     static int[][] map;
     static boolean[][] cleaningChk;
-    static int[] dy = new int[]{1, 0, -1, 0};
+    static int[] dy = new int[]{-1, 0, 1, 0};
     static int[] dx = new int[]{0, 1, 0, -1};
 
     private static void input() throws IOException {
@@ -52,7 +52,7 @@ public class 로봇청소기_14503 {
         int cnt = 0;
         for (int i = 0; i < mapY; i++) {
             for (int j = 0; j < mapX; j++) {
-                if(cleaningChk[i][j]) {
+                if(map[i][j] == 2) {
                     cnt++;
                 }
             }
@@ -67,8 +67,8 @@ public class 로봇청소기_14503 {
 
     private static void dfs(int robotY, int robotX, int robotDirection) {
         //현재위치 청소
-        if (map[robotY][robotX] == 0 && !cleaningChk[robotY][robotX]) {
-            cleaningChk[robotY][robotX] = true;
+        if (map[robotY][robotX] == 0) {
+            map[robotY][robotX] = 2;
         }
 
         //현재칸의 주변 4칸중 청소되지 않는 빈칸이 있는경우
@@ -76,20 +76,20 @@ public class 로봇청소기_14503 {
             //반시계 방향으로 90도 회전
             robotDirection = (robotDirection + 3) % 4;
             int ny = robotY + dy[robotDirection];
-            int nx = robotX + dy[robotDirection];
+            int nx = robotX + dx[robotDirection];
 
-            if (ny >= 0 && nx >= 0 && ny < mapY && nx < mapX && map[ny][nx] == 0 && !cleaningChk[ny][nx]) {
+            if (ny >= 0 && nx >= 0 && ny < mapY && nx < mapX && map[ny][nx] == 0) {
                 dfs(ny, nx, robotDirection);
                 return;
             }
         }
 
-        int back = (robotY + 2) % 4;
-        int by = robotY + dy[robotDirection];
-        int bx = robotX + dx[robotDirection];
+        int back = (robotDirection + 2) % 4;
+        int by = robotY + dy[back];
+        int bx = robotX + dx[back];
 
-        if (by >= 0 && bx >= 0 && by < mapY && bx < mapX && map[by][bx] != -1) {
-            dfs(by, bx, back);
+        if (by >= 0 && bx >= 0 && by < mapY && bx < mapX && map[by][bx] != 1) {
+            dfs(by, bx, robotDirection);
         }
     }
 }
